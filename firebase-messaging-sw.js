@@ -19,7 +19,7 @@ messaging.onBackgroundMessage((payload) => {
   const title = payload.notification?.title || "Notificación";
   const options = {
     body: payload.notification?.body || "",
-    icon: payload.notification?.icon || "/firebase-logo.png",
+    icon: payload.notification?.icon || "./firebase-logo.png",
   };
   self.registration.showNotification(title, options);
 });
@@ -27,5 +27,5 @@ messaging.onBackgroundMessage((payload) => {
 // Manejar clics en la notificación
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  event.waitUntil(clients.openWindow('/'));
+  event.waitUntil(clients.openWindow('./'));
 });
